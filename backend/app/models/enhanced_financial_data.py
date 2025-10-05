@@ -17,6 +17,33 @@ class ReportType(str, enum.Enum):
     Q4 = "q4"
 
 
+# ==================== REPORT ====================
+# Note: We use the existing Company model from financial_data.py
+
+
+class Report(Base):
+    """Financial Report Metadata"""
+    __tablename__ = "reports"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    company_id = Column(Integer, ForeignKey("companies.id"), nullable=False)
+    report_type = Column(String(20), nullable=False)  # 'annual' or 'quarterly'
+    quarter = Column(String(5), nullable=True)  # 'Q1', 'Q2', 'Q3', 'Q4'
+    fiscal_year = Column(String(10), nullable=True)  # e.g., '2023-24'
+    report_date = Column(Date, nullable=False)
+    filing_date = Column(Date, nullable=True)
+    pdf_path = Column(String(500), nullable=True)
+    is_audited = Column(Boolean, default=False)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    
+    # Relationships
+    balance_sheets = relationship("BalanceSheet", back_populates="report")
+    income_statements = relationship("IncomeStatement", back_populates="report")
+    cash_flows = relationship("CashFlowStatement", back_populates="report")
+    extraction_logs = relationship("PDFExtractionLog", back_populates="report")
+
+
 # ==================== BALANCE SHEET ====================
 
 class BalanceSheet(Base):
@@ -24,12 +51,13 @@ class BalanceSheet(Base):
     __tablename__ = "balance_sheets"
     
     id = Column(Integer, primary_key=True, index=True)
-    company_id = Column(Integer, ForeignKey("companies.id"), nullable=False)
-    fiscal_year = Column(Integer, nullable=False)
-    report_type = Column(Enum(ReportType), nullable=False)
-    period_end_date = Column(Date, nullable=False)
+    report_id = Column(Integer, ForeignKey("reports.id"), nullable=False)
     currency = Column(String, default="PKR")
     unit = Column(String, default="thousands")  # thousands, millions
+    created_at = Column(DateTime, default=datetime.utcnow)
+    
+    # Relationship
+    report = relationship("Report", back_populates="balance_sheets")
     
     # NON-CURRENT ASSETS
     property_plant_equipment = Column(Float, nullable=True)
@@ -93,8 +121,6 @@ class BalanceSheet(Base):
     extraction_confidence = Column(Float, nullable=True)  # 0-1 score
     notes = Column(Text, nullable=True)
     
-    # Relationships
-    company = relationship("Company")
 
 
 # ==================== INCOME STATEMENT ====================
@@ -104,12 +130,13 @@ class IncomeStatement(Base):
     __tablename__ = "income_statements"
     
     id = Column(Integer, primary_key=True, index=True)
-    company_id = Column(Integer, ForeignKey("companies.id"), nullable=False)
-    fiscal_year = Column(Integer, nullable=False)
-    report_type = Column(Enum(ReportType), nullable=False)
-    period_end_date = Column(Date, nullable=False)
+    report_id = Column(Integer, ForeignKey("reports.id"), nullable=False)
     currency = Column(String, default="PKR")
     unit = Column(String, default="thousands")
+    created_at = Column(DateTime, default=datetime.utcnow)
+    
+    # Relationship
+    report = relationship("Report", back_populates="income_statements")
     
     # REVENUE AND GROSS PROFIT
     revenue = Column(Float, nullable=True)
@@ -159,8 +186,6 @@ class IncomeStatement(Base):
     extraction_confidence = Column(Float, nullable=True)
     notes = Column(Text, nullable=True)
     
-    # Relationships
-    company = relationship("Company")
 
 
 # ==================== CASH FLOW STATEMENT ====================
@@ -170,12 +195,13 @@ class CashFlowStatement(Base):
     __tablename__ = "cash_flow_statements"
     
     id = Column(Integer, primary_key=True, index=True)
-    company_id = Column(Integer, ForeignKey("companies.id"), nullable=False)
-    fiscal_year = Column(Integer, nullable=False)
-    report_type = Column(Enum(ReportType), nullable=False)
-    period_end_date = Column(Date, nullable=False)
+    report_id = Column(Integer, ForeignKey("reports.id"), nullable=False)
     currency = Column(String, default="PKR")
     unit = Column(String, default="thousands")
+    created_at = Column(DateTime, default=datetime.utcnow)
+    
+    # Relationship
+    report = relationship("Report", back_populates="cash_flows")
     
     # OPERATING ACTIVITIES
     cash_from_customers = Column(Float, nullable=True)
@@ -215,8 +241,6 @@ class CashFlowStatement(Base):
     extraction_confidence = Column(Float, nullable=True)
     notes = Column(Text, nullable=True)
     
-    # Relationships
-    company = relationship("Company")
 
 
 # ==================== ENHANCED RATIOS ====================
@@ -274,8 +298,6 @@ class EnhancedFinancialRatios(Base):
     created_at = Column(DateTime, default=datetime.utcnow)
     calculated_from_extracted_data = Column(Boolean, default=False)
     
-    # Relationships
-    company = relationship("Company")
 
 
 # ==================== PDF EXTRACTION LOG ====================
@@ -285,19 +307,14 @@ class PDFExtractionLog(Base):
     __tablename__ = "pdf_extraction_logs"
     
     id = Column(Integer, primary_key=True, index=True)
-    company_id = Column(Integer, ForeignKey("companies.id"), nullable=False)
-    pdf_filename = Column(String, nullable=False)
-    fiscal_year = Column(Integer, nullable=True)
-    report_type = Column(String, nullable=True)
-    
-    extraction_date = Column(DateTime, default=datetime.utcnow)
-    extraction_status = Column(String, nullable=False)  # success, partial, failed
-    pages_processed = Column(Integer, nullable=True)
-    statements_found = Column(Integer, nullable=True)
-    
+    report_id = Column(Integer, ForeignKey("reports.id"), nullable=True)
+    pdf_path = Column(String(500), nullable=False)
+    extraction_success = Column(Boolean, default=False)
     error_message = Column(Text, nullable=True)
+    pages_processed = Column(Integer, nullable=True)
+    extracted_at = Column(DateTime, default=datetime.utcnow)
+    
+    # Relationship
+    report = relationship("Report", back_populates="extraction_logs")
     extraction_method = Column(String, nullable=True)  # pymupdf, pdfplumber, camelot
     processing_time_seconds = Column(Float, nullable=True)
-    
-    # Relationships
-    company = relationship("Company")

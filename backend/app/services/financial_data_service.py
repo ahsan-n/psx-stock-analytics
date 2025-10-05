@@ -7,8 +7,9 @@ from sqlalchemy.orm import Session
 from datetime import datetime, date
 import logging
 
+from app.models.financial_data import Company
 from app.models.enhanced_financial_data import (
-    Company, Report, BalanceSheet, IncomeStatement, 
+    Report, BalanceSheet, IncomeStatement, 
     CashFlowStatement, PDFExtractionLog
 )
 from app.parsers.hybrid_extractor import extract_hybrid
@@ -191,16 +192,16 @@ class FinancialDataService:
             total_equity=total_equity,
             # Assets
             property_plant_equipment=ppe,
-            cash_and_equivalents=cash,
-            inventory=inventory,
+            cash_bank_balances=cash,
+            stock_in_trade=inventory,
             trade_debts=trade_debts,
             # Liabilities
-            long_term_debt=long_term_debt,
-            short_term_debt=short_term_debt,
-            trade_payables=trade_payables,
+            long_term_loans=long_term_debt,
+            short_term_borrowings=short_term_debt,
+            trade_and_other_payables=trade_payables,
             # Equity
-            share_capital=share_capital,
-            retained_earnings=retained_earnings
+            issued_subscribed_paid_up_capital=share_capital,
+            accumulated_profit_loss=retained_earnings
         )
         
         self.db.add(balance_sheet)
@@ -231,12 +232,11 @@ class FinancialDataService:
             revenue=revenue,
             cost_of_sales=abs(cost_of_sales) if cost_of_sales and cost_of_sales < 0 else cost_of_sales,  # Make positive
             gross_profit=gross_profit,
-            operating_expenses=abs(operating_expenses) if operating_expenses and operating_expenses < 0 else operating_expenses,
-            operating_profit=operating_profit,
-            finance_cost=abs(finance_cost) if finance_cost and finance_cost < 0 else finance_cost,
-            profit_before_tax=profit_before_tax,
-            tax_expense=abs(tax_expense) if tax_expense and tax_expense < 0 else tax_expense,
-            net_profit=net_profit
+            distribution_costs=abs(operating_expenses) if operating_expenses and operating_expenses < 0 else operating_expenses,
+            finance_costs=abs(finance_cost) if finance_cost and finance_cost < 0 else finance_cost,
+            profit_before_taxation=profit_before_tax,
+            taxation=abs(tax_expense) if tax_expense and tax_expense < 0 else tax_expense,
+            profit_after_taxation=net_profit
         )
         
         self.db.add(income_statement)

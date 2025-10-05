@@ -33,6 +33,7 @@ services:
     volumes:
       - ./backend:/app
       - ./data:/data
+      - ./reports:/app/reports
     depends_on:
       db:
         condition: service_healthy

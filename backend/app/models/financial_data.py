@@ -12,6 +12,7 @@ class Company(Base):
     symbol = Column(String, unique=True, index=True, nullable=False)  # e.g., "FCCL"
     name = Column(String, nullable=False)  # e.g., "Fauji Cement Company Limited"
     sector = Column(String, nullable=True)  # e.g., "Cement"
+    industry = Column(String, nullable=True)  # Added for compatibility
     created_at = Column(DateTime, default=datetime.utcnow)
 
     # Relationships
