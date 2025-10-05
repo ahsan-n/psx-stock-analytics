@@ -192,7 +192,7 @@ class FinancialDataService:
             total_equity=total_equity,
             # Assets
             property_plant_equipment=ppe,
-            cash_bank_balances=cash,
+            cash_and_bank_balances=cash,
             stock_in_trade=inventory,
             trade_debts=trade_debts,
             # Liabilities
@@ -200,8 +200,10 @@ class FinancialDataService:
             short_term_borrowings=short_term_debt,
             trade_and_other_payables=trade_payables,
             # Equity
-            issued_subscribed_paid_up_capital=share_capital,
-            accumulated_profit_loss=retained_earnings
+            share_capital=share_capital,
+            retained_earnings=retained_earnings,
+            # Metadata
+            extracted_from_pdf=True
         )
         
         self.db.add(balance_sheet)
@@ -233,10 +235,14 @@ class FinancialDataService:
             cost_of_sales=abs(cost_of_sales) if cost_of_sales and cost_of_sales < 0 else cost_of_sales,  # Make positive
             gross_profit=gross_profit,
             distribution_costs=abs(operating_expenses) if operating_expenses and operating_expenses < 0 else operating_expenses,
+            administrative_expenses=abs(operating_expenses) if operating_expenses and operating_expenses < 0 else operating_expenses,
+            operating_profit=operating_profit,
             finance_costs=abs(finance_cost) if finance_cost and finance_cost < 0 else finance_cost,
-            profit_before_taxation=profit_before_tax,
-            taxation=abs(tax_expense) if tax_expense and tax_expense < 0 else tax_expense,
-            profit_after_taxation=net_profit
+            profit_before_tax=profit_before_tax,
+            total_taxation=abs(tax_expense) if tax_expense and tax_expense < 0 else tax_expense,
+            profit_after_tax=net_profit,
+            # Metadata
+            extracted_from_pdf=True
         )
         
         self.db.add(income_statement)
@@ -260,9 +266,11 @@ class FinancialDataService:
         
         cash_flow = CashFlowStatement(
             report_id=report_id,
-            cash_from_operations=cash_from_operations,
-            cash_from_investing=cash_from_investing,
-            cash_from_financing=cash_from_financing
+            net_cash_from_operating_activities=cash_from_operations,
+            net_cash_used_in_investing_activities=cash_from_investing,
+            net_cash_from_financing_activities=cash_from_financing,
+            # Metadata
+            extracted_from_pdf=True
         )
         
         self.db.add(cash_flow)
