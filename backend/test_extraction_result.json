@@ -1,0 +1,118 @@
+{
+  "company_info": {
+    "symbol": "FCCL",
+    "name": "Fauji Cement Company Limited",
+    "type": "annual"
+  },
+  "extraction_metadata": {
+    "pdf_name": "FCCL_Annual_2023-24.pdf",
+    "pages_processed": 287,
+    "statement_pages": {
+      "balance_sheet": [
+        150,
+        167,
+        171,
+        182,
+        184,
+        188,
+        197,
+        201,
+        202,
+        205,
+        238
+      ],
+      "income_statement": [
+        161,
+        165,
+        182,
+        184,
+        188,
+        191,
+        198,
+        199,
+        203,
+        204,
+        205,
+        207,
+        237
+      ],
+      "cash_flow": [
+        150,
+        174,
+        175,
+        176,
+        182,
+        184,
+        188,
+        193,
+        198,
+        229
+      ]
+    }
+  },
+  "balance_sheet": {
+    "current_year": null,
+    "previous_year": null,
+    "assets": {},
+    "liabilities": {},
+    "equity": {}
+  },
+  "income_statement": {
+    "current_year": null,
+    "previous_year": null,
+    "line_items": {}
+  },
+  "cash_flow": {
+    "current_year": null,
+    "previous_year": null,
+    "operating_activities": {},
+    "investing_activities": {},
+    "financing_activities": {}
+  },
+  "validation": {
+    "overall_valid": false,
+    "overall_confidence": 0.0,
+    "balance_sheet": {
+      "valid": false,
+      "confidence": 0.0,
+      "issues": [
+        "Missing required field: property",
+        "Missing required field: cash",
+        "Missing required field: equity",
+        "Missing required field: share capital"
+      ]
+    },
+    "income_statement": {
+      "valid": false,
+      "confidence": 0.0,
+      "issues": [
+        "Missing required field: revenue",
+        "Missing required field: profit",
+        "Missing required field: expense",
+        "Net profit not found"
+      ]
+    },
+    "cash_flow": {
+      "valid": false,
+      "confidence": 0.0,
+      "issues": [
+        "Operating activities section empty",
+        "Investing activities section empty",
+        "Financing activities section empty"
+      ]
+    },
+    "all_issues": [
+      "BS: Missing required field: property",
+      "BS: Missing required field: cash",
+      "BS: Missing required field: equity",
+      "BS: Missing required field: share capital",
+      "IS: Missing required field: revenue",
+      "IS: Missing required field: profit",
+      "IS: Missing required field: expense",
+      "IS: Net profit not found",
+      "CF: Operating activities section empty",
+      "CF: Investing activities section empty",
+      "CF: Financing activities section empty"
+    ]
+  }
+}

@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
 from app.core.database import engine
 from app.models import base
-from app.api.v1 import auth, financial_data, reports
+from app.api.v1 import auth, financial_data, reports, pdf_processing
 
 # Create database tables
 base.Base.metadata.create_all(bind=engine)
@@ -29,6 +29,7 @@ app.add_middleware(
 app.include_router(auth.router, prefix="/api/v1/auth", tags=["Authentication"])
 app.include_router(financial_data.router, prefix="/api/v1/financial", tags=["Financial Data"])
 app.include_router(reports.router, prefix="/api/v1/reports", tags=["Reports"])
+app.include_router(pdf_processing.router, prefix="/api/v1/pdf", tags=["PDF Processing"])
 
 @app.get("/")
 async def root():
