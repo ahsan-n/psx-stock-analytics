@@ -1,0 +1,210 @@
+{
+  "company": {
+    "name": "Fauji Cement Company Limited",
+    "ticker": "FCCL",
+    "sector": "Cement",
+    "exchange": "Pakistan Stock Exchange (PSX)",
+    "fiscal_year_end": "June 30"
+  },
+  "reports": [
+    {
+      "fiscal_year": "2020-21",
+      "period": "Q1",
+      "period_end": "2020-09-30",
+      "filename": "FCCL_2020-21_Q1.pdf",
+      "original_filename": "156355.pdf",
+      "type": "Quarterly",
+      "verified": true
+    },
+    {
+      "fiscal_year": "2020-21",
+      "period": "Q2",
+      "period_end": "2020-12-31",
+      "filename": "FCCL_2020-21_Q2.pdf",
+      "original_filename": "162298.pdf",
+      "type": "Half-Yearly",
+      "verified": true
+    },
+    {
+      "fiscal_year": "2020-21",
+      "period": "Q3",
+      "period_end": "2021-03-31",
+      "filename": "FCCL_2020-21_Q3.pdf",
+      "original_filename": "166069.pdf",
+      "type": "Quarterly",
+      "verified": true
+    },
+    {
+      "fiscal_year": "2020-21",
+      "period": "Annual",
+      "period_end": "2021-06-30",
+      "filename": "FCCL_Annual_2020-21.pdf",
+      "original_filename": "172628.pdf",
+      "type": "Annual",
+      "verified": false,
+      "notes": "PDF extraction failed - may be encrypted or corrupted"
+    },
+    {
+      "fiscal_year": "2021-22",
+      "period": "Q1",
+      "period_end": "2021-09-30",
+      "filename": "FCCL_2021-22_Q1.pdf",
+      "original_filename": "176038.pdf",
+      "type": "Quarterly",
+      "verified": true
+    },
+    {
+      "fiscal_year": "2021-22",
+      "period": "Q2",
+      "period_end": "2021-12-31",
+      "filename": "FCCL_2021-22_Q2.pdf",
+      "original_filename": "182678.pdf",
+      "type": "Half-Yearly",
+      "verified": false,
+      "notes": "PDF extraction failed - may be encrypted or corrupted"
+    },
+    {
+      "fiscal_year": "2021-22",
+      "period": "Q3",
+      "period_end": "2022-03-31",
+      "filename": "FCCL_2021-22_Q3.pdf",
+      "original_filename": "186310.pdf",
+      "type": "Quarterly",
+      "verified": false,
+      "notes": "PDF extraction failed - may be encrypted or corrupted"
+    },
+    {
+      "fiscal_year": "2021-22",
+      "period": "Annual",
+      "period_end": "2022-06-30",
+      "filename": "FCCL_Annual_2021-22.pdf",
+      "original_filename": "193250.pdf",
+      "type": "Annual",
+      "verified": true
+    },
+    {
+      "fiscal_year": "2022-23",
+      "period": "Q1",
+      "period_end": "2022-09-30",
+      "filename": "FCCL_2022-23_Q1.pdf",
+      "original_filename": "196583.pdf",
+      "type": "Quarterly",
+      "verified": true
+    },
+    {
+      "fiscal_year": "2022-23",
+      "period": "Q2",
+      "period_end": "2022-12-31",
+      "filename": "FCCL_2022-23_Q2.pdf",
+      "original_filename": "202874.pdf",
+      "type": "Half-Yearly",
+      "verified": true
+    },
+    {
+      "fiscal_year": "2022-23",
+      "period": "Q3",
+      "period_end": "2023-03-31",
+      "filename": "FCCL_2022-23_Q3.pdf",
+      "original_filename": "206818.pdf",
+      "type": "Quarterly",
+      "verified": true
+    },
+    {
+      "fiscal_year": "2022-23",
+      "period": "Annual",
+      "period_end": "2023-06-30",
+      "filename": "FCCL_Annual_2022-23.pdf",
+      "original_filename": "217064.pdf",
+      "type": "Annual",
+      "verified": true
+    },
+    {
+      "fiscal_year": "2023-24",
+      "period": "Q1",
+      "period_end": "2023-09-30",
+      "filename": "FCCL_2023-24_Q1.pdf",
+      "original_filename": "219883.pdf",
+      "type": "Quarterly",
+      "verified": true
+    },
+    {
+      "fiscal_year": "2023-24",
+      "period": "Q2",
+      "period_end": "2023-12-31",
+      "filename": "FCCL_2023-24_Q2.pdf",
+      "original_filename": "226360.pdf",
+      "type": "Half-Yearly",
+      "verified": false,
+      "notes": "PDF extraction failed - may be encrypted or corrupted"
+    },
+    {
+      "fiscal_year": "2023-24",
+      "period": "Q3",
+      "period_end": "2024-03-31",
+      "filename": "FCCL_2023-24_Q3.pdf",
+      "original_filename": "230671.pdf",
+      "type": "Quarterly",
+      "verified": false,
+      "notes": "PDF extraction failed - may be encrypted or corrupted"
+    },
+    {
+      "fiscal_year": "2023-24",
+      "period": "Annual",
+      "period_end": "2024-06-30",
+      "filename": "FCCL_Annual_2023-24.pdf",
+      "original_filename": "237287.pdf",
+      "type": "Annual",
+      "verified": true
+    },
+    {
+      "fiscal_year": "2024-25",
+      "period": "Q1",
+      "period_end": "2024-09-30",
+      "filename": "FCCL_2024-25_Q1.pdf",
+      "original_filename": "241599.pdf",
+      "type": "Quarterly",
+      "verified": true
+    },
+    {
+      "fiscal_year": "2024-25",
+      "period": "Q2",
+      "period_end": "2024-12-31",
+      "filename": "FCCL_2024-25_Q2.pdf",
+      "original_filename": "248568.pdf",
+      "type": "Half-Yearly",
+      "verified": true
+    },
+    {
+      "fiscal_year": "2024-25",
+      "period": "Q3",
+      "period_end": "2025-03-31",
+      "filename": "FCCL_2024-25_Q3.pdf",
+      "original_filename": "252870.pdf",
+      "type": "Quarterly",
+      "verified": true
+    },
+    {
+      "fiscal_year": "2024-25",
+      "period": "Annual",
+      "period_end": "2025-06-30",
+      "filename": "FCCL_Annual_2024-25.pdf",
+      "original_filename": "259049.pdf",
+      "type": "Annual",
+      "verified": true
+    }
+  ],
+  "summary": {
+    "total_reports": 20,
+    "verified_reports": 15,
+    "unverified_reports": 5,
+    "fiscal_years_covered": ["2020-21", "2021-22", "2022-23", "2023-24", "2024-25"],
+    "quarters_per_year": 4,
+    "complete_years": ["2022-23", "2024-25"]
+  },
+  "notes": [
+    "FCCL's financial year runs from July 1 to June 30",
+    "Q1 ends September 30, Q2 ends December 31, Q3 ends March 31, Annual ends June 30",
+    "5 PDFs could not be extracted (likely encrypted or corrupted) - marked as unverified",
+    "Priority: Focus on complete years (2022-23, 2024-25) for initial data extraction"
+  ]
+}
