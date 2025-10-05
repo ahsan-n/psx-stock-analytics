@@ -1,0 +1,36 @@
+{
+  "company": "Maple Leaf Cement Factory",
+  "symbol": "MLCF",
+  "reports": {
+    "2019-20": [
+      "MLCF_2019-20_Q1.pdf",
+      "MLCF_2019-20_Q2.pdf"
+    ],
+    "2020-21": [
+      "MLCF_2020-21_Q1.pdf",
+      "MLCF_2020-21_Q2.pdf",
+      "MLCF_2020-21_Q3.pdf",
+      "MLCF_Annual_2020-21.pdf"
+    ],
+    "2021-22": [
+      "MLCF_2021-22_Q1.pdf",
+      "MLCF_2021-22_Q2.pdf",
+      "MLCF_2021-22_Q3.pdf"
+    ],
+    "2022-23": [
+      "MLCF_2022-23_Q1.pdf",
+      "MLCF_2022-23_Q1_alt.pdf",
+      "MLCF_2022-23_Q2.pdf",
+      "MLCF_Annual_2022-23.pdf"
+    ],
+    "2023-24": [
+      "MLCF_2023-24_Q1.pdf",
+      "MLCF_2023-24_Q1_alt.pdf",
+      "MLCF_Annual_2023-24.pdf"
+    ],
+    "2024-25": [
+      "MLCF_2024-25_Q3.pdf",
+      "MLCF_Annual_2024-25.pdf"
+    ]
+  }
+}
